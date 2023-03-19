@@ -1,1 +1,1 @@
-This project is the User Interfact for the climbing wall
+This project is the User Interface for the climbing wall LED Project
