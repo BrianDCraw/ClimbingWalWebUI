@@ -41,7 +41,7 @@ class App extends Component {
     apicall.LightNum = LightNum
 
   //Call API to set the specific light
-  axios.post('http://192.168.1.246/setLED', apicall)
+  axios.post('http://192.168.1.245/setLED', apicall)
       .catch(error => {
           console.error('There was an error!', error);
       });
@@ -52,10 +52,11 @@ class App extends Component {
 
 componentDidMount()
 {
-  axios.get('http://192.168.1.246/getLights').then ((response) => {
+  axios.get('http://192.168.1.245/getLights').then ((response) => {
     let newState = this.state; 
     newState.article = response.data.article;
     let LedNum = 50
+    console.log(newState.article.lights);
    if (newState.LightsLoaded == undefined)
    {
 
@@ -89,14 +90,17 @@ render ()
 {
  let  lightinfo = "" ;
  let grids= [] ;
- let light;
+ let degrees = 0;
     
-
+ let holdNumber = 1;
+ let counter = 1;
 
 
 for (var i=18; i > 0; i--) {
     for(var j=1; j < 12; j++)
-    {   
+    {  
+      let holdimg = '' 
+      
       lightinfo = this.state.LEDS.find(item => item.x === j && item.y === i);
       if(lightinfo != undefined)
       {
@@ -104,24 +108,39 @@ for (var i=18; i > 0; i--) {
         let color =[0,0,0];
         if(light != undefined)
         {
-          color = light.RGB;
+           if(light.RGB != undefined)
+           {
+            color = light.RGB;
+           }
+
         }
-  
-            grids.push({"colors": color, "coords":[j,i], "lightNum":lightinfo.LightNum});
+          if(counter % 5 == 0)
+          {
+               holdimg = '../src/images/Hold'+holdNumber +'.png';
+              holdNumber++;
+              if (holdNumber == 37)
+              {
+                holdNumber = 1;
+              }
+          }
+            grids.push({"colors": color, "coords":[j,i], "lightNum":lightinfo.LightNum, "degree":degrees, "holdimgs":holdimg});
+            degrees = degrees + 10
+            counter++
       }
 
      
     };
-
   
 };
   return(
     <div >
-           {grids.map(({ colors, coords, lightNum }) => (
+           {grids.map(({ colors, coords, lightNum, degree,holdimgs }) => (
         <GridButton
           colors={colors}
           coords={coords}
           lightNum={lightNum}
+          degree={degree}
+          holdimg={holdimgs}
           CallAPI={this.CallAPI.bind(this)}
         />
       ))}
