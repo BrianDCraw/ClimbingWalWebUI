@@ -12,36 +12,36 @@ class App extends Component {
                   };
   }
   
-  CallAPI = (RGB,LightNum ) => {
+CallAPI = (RGB,LightNum ) => {
 
-    let newState = this.state; //Grab state which is where the JSON is saved
-    let lightindex = newState.LEDS.findIndex (el => el.LightNum === LightNum)
-    let routeindex = newState.article.lights.findIndex (el => el.lightNum === LightNum)
+  let newState = this.state; //Grab state which is where the JSON is saved
+  let lightindex = newState.LEDS.findIndex (el => el.LightNum === LightNum)
+  let routeindex = newState.article.lights.findIndex (el => el.lightNum === LightNum)
 
-    //loop through each light in json and see if the coordinate exists
-    if(routeindex > -1)
-    {
-      newState.article.lights.splice(routeindex,1); //Remove coordinate from array
-      newState.LEDS[lightindex].color = [0,0,0];
-    }
-    else
-    {
-      newState.article.lights.push({"lightNum":LightNum,"RGB": RGB})
-      newState.LEDS[lightindex].color = RGB;
-    }    
+  //loop through each light in json and see if the coordinate exists
+  if(routeindex > -1)
+  {
+    newState.article.lights.splice(routeindex,1); //Remove coordinate from array
+    newState.LEDS[lightindex].color = [0,0,0];
+  }
+  else
+  {
+    newState.article.lights.push({"lightNum":LightNum,"RGB": RGB})
+    newState.LEDS[lightindex].color = RGB;
+  }    
 
-    //build single light json for that api
-    let apicall = {"RGB":newState.LEDS[lightindex].color ,"LightNum": LightNum}
+  //build single light json for that api
+  let apicall = {"RGB":newState.LEDS[lightindex].color ,"LightNum": LightNum}
 
   //Call API to set the specific light
   axios.post('http://192.168.1.245/setLED', apicall)
-      .catch(error => {
+    .catch(error => {
           console.error('There was an error!', error);
-      });
+    });
 
       //update state with current json
-      this.setState(newState)
-   }
+    this.setState(newState)
+}
  
  
 getlights = ()  =>  {
@@ -53,6 +53,7 @@ getlights = ()  =>  {
     })
   
 }
+
 setupGrid = (response)  => {
   let newState = this.state; //Grab state which is where the JSON is saved
   newState.article =  response.data.article;
