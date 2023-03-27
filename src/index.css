@@ -34,6 +34,7 @@ body {
   width: 1100px;
   height: 1800px;
   background-image: url(https://c.pxhere.com/photos/b6/25/wood_background_funds_plate_ocre_aged_natural-989892.jpg!d);
+  background-position-y: bottom;
 }
 
 h1 {
@@ -41,18 +42,18 @@ h1 {
   line-height: 1.1;
 }
 .led-off{
-  transform: translate(200%,200%);
-  width: 20%;
-  height: 20%;
+  transform: translate(275%,275%);
+  width: 15%;
+  height: 15%;
   background-color: rgb(197, 194, 194);
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
   vertical-align: middle;
 }
 .led-green {
-  transform: translate(200%,200%);
-  width: 20%;
-  height: 20%;
+  transform: translate(275%,275%);
+  width: 15%;
+  height: 15%;
   background-color: #ABFF00;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
