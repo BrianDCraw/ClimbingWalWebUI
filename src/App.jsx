@@ -63,7 +63,6 @@ setupGrid = (response)  => {
   let LedNum = 50
   let color =[0,0,0];
   let light;
-  console.log(response);
   // only try to intialize
   for (var x=11; x> 0; x--) {
 
@@ -303,10 +302,9 @@ setupGrid = (response)  => {
     { x:10,y:1,holdimg:"Hold96.png",degree:0},
     { x:11,y:1,holdimg:"",degree:0}
     ]
- console.log(newState.LEDS);
+
   newState.LEDS.forEach(LED => {
        let hold = holdsetup.find( item =>item.x === LED.x && item.y === LED.y)
-       console.log(hold)
        if (hold.holdimg != "")
        {
         LED.holdimg = '../src/images/'+hold.holdimg;
