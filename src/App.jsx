@@ -307,7 +307,7 @@ setupGrid = (response)  => {
        let hold = holdsetup.find( item =>item.x === LED.x && item.y === LED.y)
        if (hold.holdimg != "")
        {
-        LED.holdimg = '../src/images/'+hold.holdimg;
+        LED.holdimg = 'https://raw.githubusercontent.com/BrianDCraw/ClimbingWallWebUI/main/src/images/'+hold.holdimg ;
         LED.degree= hold.degree;
        }
 
