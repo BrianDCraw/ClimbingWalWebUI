@@ -125,10 +125,27 @@ h1 {
 }
 
 .routes{
-  height: 100px;
+  height: 100px; width: 1100;
+}
+.mirror{
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
+  height:  100px; width:200px;
+  float:right;
+  background: #c5c5c5;
+  text-align:center;
+  vertical-align: middle;
+  line-height: 100px;
+  font-size:x-large;
+  font-weight: bold;
+}
+.Dropdown-root{
+  width: 900px;
+  position:fixed;
+z-index: 3;
 }
 .Dropdown-control{
   height: 100px;
+  width: 900px;
   line-height: 75px;
   font-size: x-large;
   font-weight: bolder;

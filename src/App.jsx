@@ -107,6 +107,13 @@ loadRoute = (Routename) =>
   });
   this.setState(newState);
 }
+updateAllLights = () =>
+{
+
+
+}
+
+
 
 setupGrid = (response)  => {
   let newState = this.state; //Grab state which is where the JSON is saved
@@ -171,6 +178,23 @@ setupGrid = (response)  => {
   newState.LightsLoaded = 1;
   this.setState(newState)
 }
+ mirrorHolds = ()  =>  {
+  let newState = this.state ;  
+   newState.article.lights.forEach(light => {
+     let LED =  this.newState.LEDS.find(item => item.LightNum === light.LightNum)
+     let x = LED.coords.x 
+     if(x != 6)
+     {
+      x = 11-x+1
+      let NEWLED = this.newState.LEDS.find(item => item.coords.x  === x && item.coords.y == LED.coords.y)
+      NEWLED.color = LED.color;
+      LED.color = [0,0,0]
+      light.LightNum = NEWLED.LightNum;
+     }
+   });
+   this.setState(newState);
+   this.CallAPILoadRoute(newState.article.lights)
+}
 
 componentDidMount()
 {
@@ -185,7 +209,9 @@ render ()
   <div name ="root">
    <div className ="routes">
    <RouteDropdown LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} />
-   </div>
+   <div className="mirror" style={{ cursor: "pointer"}} onClick={() => this.mirrorHolds()} >MIRROR</div>
+  </div>
+
     <div className ="leds">
     { this.state.LEDS.map(({ color, LightNum, degree,holdimg }) => (
  <GridButton key = {LightNum}
