@@ -76,11 +76,16 @@ getroutes = () => {
 }
  
 getlights = ()  =>  {
-
+    let newState = this.state;
     axios.get('http://192.168.1.245/getLights').then ((response) => {  
       if (this.state.LightsLoaded == undefined)
       {
-       this.setupGrid(response);
+        newState.article.lights = []
+        response.data.article.lights.forEach(light => {
+          newState.article.lights.push({"LightNum":light.LightNum, "RGB":light.RGB})
+          this.setState(newState);
+       });
+       this.setupGrid();
       }
     })
 
@@ -115,15 +120,9 @@ updateAllLights = () =>
 
 
 
-setupGrid = (response)  => {
-  let newState = this.state; //Grab state which is where the JSON is saved
-  //code to fix backendcode i haven't fixed
-  console.log(response.data);
-  response.data.article.lights.forEach(light => {
-     newState.article.lights.push({"LightNum":light.LightNum, "RGB":light.RGB})
-  });
-  //end bad code
-
+setupGrid = ()  => {
+  let newState = this.state;
+  newState.LEDS= []
   let LedNum = 50 //first LED starts at 50
   let color =[0,0,0];
   let light;
@@ -134,7 +133,7 @@ setupGrid = (response)  => {
     {
       for(var y=18; y >0; y--)
       {     
-        light = newState.article.lights.find( ({LightNum}) =>LightNum === LedNum) ;
+        light = this.state.article.lights.find( ({LightNum}) =>LightNum === LedNum) ;
         if(light != undefined && light.RGB != undefined)
         {
           color = light.RGB;
@@ -149,7 +148,7 @@ setupGrid = (response)  => {
     {
       for(var y=1; y <19; y++)
       {     
-        light = newState.article.lights.find( item =>item.LightNum === LedNum) ;
+        light = this.state.article.lights.find( item =>item.LightNum === LedNum) ;
         if(light != undefined && light.RGB != undefined)
         {
           color = light.RGB;
@@ -178,22 +177,20 @@ setupGrid = (response)  => {
   newState.LightsLoaded = 1;
   this.setState(newState)
 }
+
  mirrorHolds = ()  =>  {
-  let newState = this.state ;  
-   newState.article.lights.forEach(light => {
-     let LED =  this.newState.LEDS.find(item => item.LightNum === light.LightNum)
+  this.state.article.lights.forEach(light => {
+     let LED =  this.state.LEDS.find(item => item.LightNum === light.LightNum)
      let x = LED.coords.x 
      if(x != 6)
      {
       x = 11-x+1
-      let NEWLED = this.newState.LEDS.find(item => item.coords.x  === x && item.coords.y == LED.coords.y)
-      NEWLED.color = LED.color;
-      LED.color = [0,0,0]
+      let NEWLED = this.state.LEDS.find(item => item.coords.x  === x && item.coords.y == LED.coords.y)
       light.LightNum = NEWLED.LightNum;
      }
    });
-   this.setState(newState);
-   this.CallAPILoadRoute(newState.article.lights)
+   this.setupGrid();
+   this.CallAPILoadRoute(this.state.article.lights)
 }
 
 componentDidMount()
