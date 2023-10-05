@@ -126,7 +126,7 @@ setupGrid = ()  => {
   let LedNum = 50 //first LED starts at 50
   let color =[0,0,0];
   let light;
-  // only try to intialize
+
   for (var x=11; x> 0; x--) {
 
     if ( x % 2 == 0) //Even column
@@ -138,10 +138,12 @@ setupGrid = ()  => {
         {
           color = light.RGB;
         }
-        newState.LEDS.push({"LightNum":LedNum,"x": x, "y":y ,"color":color })
+        else {
+           color = [0,0,0];
+        }
+        newState.LEDS.push({"LightNum":LedNum,"x": x, "y":y,"color":color })
         LedNum ++
-        light = undefined;
-        color = [0,0,0];
+  
       }
     }
     if ( x % 2 != 0) //ODD column
@@ -153,27 +155,25 @@ setupGrid = ()  => {
         {
           color = light.RGB;
         }
-        newState.LEDS.push({"LightNum":LedNum,"x": x, "y":y ,"color":color })
+        else {
+          color = [0,0,0];
+       }
+        newState.LEDS.push({"LightNum":LedNum,"x": x, "y":y,"color":color })
         LedNum ++
-        light = undefined;
-        color = [0,0,0];
       }
     }
   }
   //order lights by coordinates to set the order the UI willend up using
   newState.LEDS = _.orderBy(newState.LEDS, ['y','x'],['desc','asc']);
   newState.LEDS.forEach(LED => {
-       let hold = holds.find( item =>item.x === LED.x && item.y === LED.y)
+       let hold = holds.find( item =>item.LightNum == LED.LightNum)
        if (hold != undefined && hold.holdimg != "" )
        {
         LED.holdimg = 'https://raw.githubusercontent.com/BrianDCraw/ClimbingWallWebUI/main/src/images/'+hold.holdimg ;
         LED.degree= hold.degree;
        }
-
-      LED.coords = {"x":LED.x,"y":LED.y};
-    
-
   })  
+  console.log( newState.LEDS)
   newState.LightsLoaded = 1;
   this.setState(newState)
 }
@@ -181,11 +181,11 @@ setupGrid = ()  => {
  mirrorHolds = ()  =>  {
   this.state.article.lights.forEach(light => {
      let LED =  this.state.LEDS.find(item => item.LightNum === light.LightNum)
-     let x = LED.coords.x 
+     let x = LED.x 
      if(x != 6)
      {
       x = 11-x+1
-      let NEWLED = this.state.LEDS.find(item => item.coords.x  === x && item.coords.y == LED.coords.y)
+      let NEWLED = this.state.LEDS.find(item => item.x  === x && item.y == LED.y)
       light.LightNum = NEWLED.LightNum;
      }
    });
