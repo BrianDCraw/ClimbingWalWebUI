@@ -112,68 +112,29 @@ loadRoute = (Routename) =>
   });
   this.setState(newState);
 }
-updateAllLights = () =>
-{
-
-
-}
-
-
 
 setupGrid = ()  => {
   let newState = this.state;
   newState.LEDS= []
-  let LedNum = 50 //first LED starts at 50
-  let color =[0,0,0];
-  let light;
-
-  for (var x=11; x> 0; x--) {
-
-    if ( x % 2 == 0) //Even column
+     
+  holds.forEach( hold => {
+    let color =[0,0,0];
+    let lightdata = this.state.article.lights.find(light => light.LightNum == hold.LightNum)
+    if (lightdata != undefined)
     {
-      for(var y=18; y >0; y--)
-      {     
-        light = this.state.article.lights.find( ({LightNum}) =>LightNum === LedNum) ;
-        if(light != undefined && light.RGB != undefined)
-        {
-          color = light.RGB;
-        }
-        else {
-           color = [0,0,0];
-        }
-        newState.LEDS.push({"LightNum":LedNum,"x": x, "y":y,"color":color })
-        LedNum ++
+      color = lightdata.RGB;
+    }
+    let LED = {"LightNum":hold.LightNum,"x": hold.x, "y":hold.y,"color":color }
+    if (hold.holdimg != "")
+    {
+      LED.holdimg = 'https://raw.githubusercontent.com/BrianDCraw/ClimbingWallWebUI/main/src/images/'+hold.holdimg ;
+      LED.degree= hold.degree;
+    }
+    newState.LEDS.push(LED)
+  });
   
-      }
-    }
-    if ( x % 2 != 0) //ODD column
-    {
-      for(var y=1; y <19; y++)
-      {     
-        light = this.state.article.lights.find( item =>item.LightNum === LedNum) ;
-        if(light != undefined && light.RGB != undefined)
-        {
-          color = light.RGB;
-        }
-        else {
-          color = [0,0,0];
-       }
-        newState.LEDS.push({"LightNum":LedNum,"x": x, "y":y,"color":color })
-        LedNum ++
-      }
-    }
-  }
   //order lights by coordinates to set the order the UI willend up using
-  newState.LEDS = _.orderBy(newState.LEDS, ['y','x'],['desc','asc']);
-  newState.LEDS.forEach(LED => {
-       let hold = holds.find( item =>item.LightNum == LED.LightNum)
-       if (hold != undefined && hold.holdimg != "" )
-       {
-        LED.holdimg = 'https://raw.githubusercontent.com/BrianDCraw/ClimbingWallWebUI/main/src/images/'+hold.holdimg ;
-        LED.degree= hold.degree;
-       }
-  })  
-  console.log( newState.LEDS)
+ // newState.LEDS = _.orderBy(newState.LEDS, ['y','x'],['desc','asc']);
   newState.LightsLoaded = 1;
   this.setState(newState)
 }
