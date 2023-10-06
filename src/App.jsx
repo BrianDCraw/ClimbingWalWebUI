@@ -78,38 +78,19 @@ getroutes = () => {
 getlights = ()  =>  {
     let newState = this.state;
     axios.get('http://192.168.1.245/getLights').then ((response) => {  
-      if (this.state.LightsLoaded == undefined)
-      {
-        newState.article.lights = []
-        response.data.article.lights.forEach(light => {
-          newState.article.lights.push({"LightNum":light.LightNum, "RGB":light.RGB})
-          this.setState(newState);
-       });
-       this.setupGrid();
-      }
+        newState.article.lights =  response.data.article.lights
+        this.setState(newState);
+        this.setupGrid();
     })
-
 }
 
 loadRoute = (Routename) =>
 {
   let newState = this.state 
   let Route = routesList.find( ({RouteId}) =>RouteId === Routename)
-   this.CallAPILoadRoute(Route.Lights)
-  newState.article.lights = [];
-  newState.LEDS.forEach(LED => {
-    let lightindex = Route.Lights.find (el => el.LightNum === LED.LightNum)
-    //loop through each light in json and see if the coordinate exists
-    if (lightindex != undefined && lightindex.RGB != LED.RGB)
-    {
-      LED.color = lightindex.RGB;
-      newState.article.lights.push({"LightNum":lightindex.LightNum, "RGB":lightindex.RGB})
-    }
-    else 
-    { 
-      LED.color = [0,0,0];
-    }
-  });
+  this.CallAPILoadRoute(Route.Lights)
+  newState.article.lights = Route.Lights;
+  this.setupGrid();
   this.setState(newState);
 }
 
@@ -134,8 +115,7 @@ setupGrid = ()  => {
   });
   
   //order lights by coordinates to set the order the UI willend up using
- // newState.LEDS = _.orderBy(newState.LEDS, ['y','x'],['desc','asc']);
-  newState.LightsLoaded = 1;
+   newState.LEDS = _.orderBy(newState.LEDS, ['y','x'],['desc','asc']);
   this.setState(newState)
 }
 
