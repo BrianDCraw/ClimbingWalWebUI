@@ -7,23 +7,23 @@ class GridButton extends Component {
     //this.state = props;
   }
 
-  apicall = ()  => {
-    if (this.props.colors[0]> 0)
+  updateLight = ()  => { 
+    if (this.props.light.color[0]> 0)
     {
-      this.props.CallAPI([0,25,0],this.props.LightNum);
+      this.props.light.color = [0,25,0];
     }
-    else if  (this.props.colors[1]> 0)
+    else if  (this.props.light.color[1]> 0)
     {
-      this.props.CallAPI([0,0,25],this.props.LightNum);
+      this.props.light.color =[0,0,25];
     }
-    else if  (this.props.colors[2]> 0)
+    else if  (this.props.light.color[2]> 0)
     {
-      this.props.CallAPI([0,0,0],this.props.LightNum);
+      this.props.light.color =[0,0,0];
     }
     else {
-      this.props.CallAPI([25,0,0],this.props.LightNum);
+      this.props.light.color =[25,0,0];
     }
-
+      this.props.updateLight(this.props.light);
   }
 
 render(){
@@ -36,17 +36,17 @@ render(){
      let cssclass;
      let buttonClass;
      let cssCircle;
-      if (this.props.colors[0] > 0 ) 
+      if (this.props.light.color[0] > 0 ) 
         { 
           cssclass = "led-red"
           cssCircle = "circle-red"
         } 
-      else if(this.props.colors[1] > 0 ) 
+      else if(this.props.light.color[1] > 0 ) 
       {
         cssclass = "led-green"
         cssCircle = "circle-green"
       }
-      else if(this.props.colors[2] > 0 ) 
+      else if(this.props.light.color[2] > 0 ) 
       {
         cssclass = "led-blue"
         cssCircle = "circle-blue"
@@ -60,7 +60,7 @@ render(){
       {
         return (
           
-          <div className="button" style={{ cursor: "pointer"}} onClick={() => this.apicall()}>   
+          <div className="button" style={{ cursor: "pointer"}} onClick={() => this.updateLight()}>   
                 <img src={this.props.holdimg} style={{transform: rotation}}/>   
                 <div  className={cssclass}></div>   
                 <div className={cssCircle}></div>     
