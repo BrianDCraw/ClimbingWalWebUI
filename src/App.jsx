@@ -46,7 +46,7 @@ updateLight = (light ) => {
   let newState = this.state; //Grab state which is where the JSON is saved
   let Hold = newState.Holds.find (el => el.light.LightNum === light.LightNum)
   Hold.light.color = light.color;
-  let routeindex = newState.route.lights.find (el => el.LightNum === light.LightNum)
+  let routeindex = newState.route.lights.findIndex (el => el.LightNum === light.LightNum)
   let RGBempty = [0,0,0]
   //loop through each light in json and see if the coordinate exists
   if(routeindex > -1 && JSON.stringify(light.color) == JSON.stringify(RGBempty)  )
@@ -81,8 +81,6 @@ getroutes = () => {
      this.setState(newState);
   }
 }
- 
-
 
 loadRoute = (Routename) =>
 {
