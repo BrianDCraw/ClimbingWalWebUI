@@ -81,19 +81,19 @@ updateLight = (light ) => {
 
 saveRoute =(route) => {
   let maxRouteId = _.maxBy(this.state.RouteList.routes, 'RouteId').RouteId
-  let newState = JSON.parse(JSON.stringify(this.state));
+  let newState = this.state;
   newState.editRouteModalShow = false;
 
   if(route != undefined && this.state.route.Lights[0] !== undefined )  
   {
+    route.Lights = this.state.route.Lights
     newState.route = route;
-    newState.route.Lights =  JSON.parse(JSON.stringify(this.state.route.Lights))
-    let maxRouteId = _.maxBy(this.state.RouteList.routes, 'RouteId').RouteId
+
     if(route.RouteId == 0)
     {
       maxRouteId ++
       newState.route.RouteId =maxRouteId ;
-      newState.RouteList.routes.push(JSON.parse(JSON.stringify(newState.route)))
+      newState.RouteList.routes.push(_.cloneDeep(newState.route))
       newState.RouteDropdownList.push(
       { 
         "value": maxRouteId,  
@@ -107,7 +107,7 @@ saveRoute =(route) => {
        let updateRoute = newState.RouteList.routes.find(el => el.RouteId == newState.route.RouteId)
        updateRoute.RouteName =newState.route.RouteName ;
        updateRoute.Difficulty =newState.route.Difficulty;
-       updateRoute.Lights = JSON.parse(JSON.stringify(newState.route.Lights))
+       updateRoute.Lights = _.cloneDeep(newState.route.Lights)
     }
   }
  this.setState(newState);
@@ -136,7 +136,7 @@ loadRoute = (Routename) =>
   newState.selectedIndex = newState.RouteDropdownList.findIndex(el => el.value === Routename)
   newState.route.RouteId = Route.RouteId;
   newState.route.RouteName  = Route.RouteName;
-  newState.route.Lights = Route.Lights;
+  newState.route.Lights = _.cloneDeep(Route.Lights);
   newState.route.Difficulty = Route.Difficulty;
   this.CallAPILoadRoute(Route.Lights)
   this.setupGrid();

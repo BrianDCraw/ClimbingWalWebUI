@@ -1,6 +1,7 @@
 import React, { Component,useEffect } from 'react';
 import {Modal,Button,Row,Col,Form, ModalFooter} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as _ from "lodash";
 
 class RouteEditorModal extends Component {
     constructor(props) {
@@ -25,14 +26,15 @@ onChangeDifficulty() {
    this.state.route.Difficulty = event.target.value;
 }
 componentDidMount() {
-  let newState =  JSON.parse(JSON.stringify(this.state))
-  newState.route = JSON.parse(JSON.stringify(this.props.route));
+  let newState =  this.state
+  newState.route = this.props.route;
+
   this.setState(newState);
 }
 componentDidUpdate(){
   if (this.state.route.RouteId != this.props.route.RouteId ) {
-    let newState =  JSON.parse(JSON.stringify(this.state))
-    newState.route = JSON.parse(JSON.stringify(this.props.route));
+    let newState =  this.state
+    newState.route = this.props.route;
     this.setState(newState);
   }
 }
@@ -63,15 +65,6 @@ componentDidUpdate(){
       </Modal.Header> 
       <Modal.Body>
       <Form>
-      <Form.Group as={Row} className="mb-3" controlId="formHorizontalRouteId">
-        <Form.Label column="lg" lg={2}>
-          RouteId
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control size="lg" type="number"  onChange={this.onChangeRouteId.bind(this)} defaultValue={RouteId}  readOnly={true}/>
-        </Col>
-      </Form.Group>
-
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalRouteName">
         <Form.Label column="lg"  lg={2}>
           RouteName
