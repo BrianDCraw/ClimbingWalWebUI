@@ -93,24 +93,25 @@ saveRoute =(route) => {
     {
       maxRouteId ++
       newState.route.RouteId =maxRouteId ;
-
-      newState.RouteList.routes.push(
-        JSON.parse(JSON.stringify(newState.route))
-                    )
+      newState.RouteList.routes.push(JSON.parse(JSON.stringify(newState.route)))
       newState.RouteDropdownList.push(
       { 
         "value": maxRouteId,  
         "label":  newState.route.RouteName+ " "+  newState.route.Difficulty
       }) 
       newState.selectedIndex = newState.RouteDropdownList.findIndex(el => el.value == newState.route.RouteId)
-      console.log(newState.selectedIndex)
+    }
+    else
+    {
+       newState.RouteDropdownList[newState.selectedIndex].label = newState.route.RouteName+ " "+  newState.route.Difficulty
+       let updateRoute = newState.RouteList.routes.find(el => el.RouteId == newState.route.RouteId)
+       updateRoute.RouteName =newState.route.RouteName ;
+       updateRoute.Difficulty =newState.route.Difficulty;
+       updateRoute.Lights = JSON.parse(JSON.stringify(newState.route.Lights))
     }
   }
+ this.setState(newState);
 
-   
-      this.setState(newState);
-  
-  
 }
 
 LoadRouteList = () => {
