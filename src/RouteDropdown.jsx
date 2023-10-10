@@ -20,7 +20,7 @@ class RouteDropdown extends Component {
 render(){
     return(
         <div>
-            <Dropdown options={this.props.DropDownList} onChange={this._onSelect} value={defaultOption} placeholder={defaultOption}
+            <Dropdown options={this.props.DropDownList} onChange={this._onSelect} value={this.props.DropDownList[this.props.selectedIndex]} placeholder={defaultOption}
               arrowClosed={<span className="arrow-closed" />}
               arrowOpen={<span className="arrow-open" />}
             />
