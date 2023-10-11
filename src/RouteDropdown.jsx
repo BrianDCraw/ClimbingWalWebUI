@@ -3,7 +3,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 
-  const defaultOption = 'Select an Option'
+  const defaultOption = 'Select a Climbing Route'
 
 
 class RouteDropdown extends Component {

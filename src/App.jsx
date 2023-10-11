@@ -65,7 +65,7 @@ updateLight = (light ) => {
   {
     newState.route.Lights.splice(routeindex,1); //Remove coordinate from array
   }
-  else if(routeindex > 1 && JSON.stringify(light.color) != JSON.stringify(RGBempty)  )
+  else if(routeindex > -1 && JSON.stringify(light.color) != JSON.stringify(RGBempty)  )
   {
     newState.route.Lights[routeindex].color = light.color;
   }
@@ -155,6 +155,12 @@ mirrorRoute = ()  =>  {
      }
    });
    this.setupGrid();
+   let newState = this.state
+   newState.route.RouteName =""
+   newState.route.RouteId = 0
+   newState.route.Difficulty = ""
+   newState.selectedIndex = -1
+   this.setState(newState)
    this.CallAPILoadRoute(this.state.route.Lights)
 }
 
@@ -182,7 +188,6 @@ setupGrid = ()  => {
    newState.Holds = _.orderBy(newState.Holds, ['y','x'],['desc','asc']);
   this.setState(newState)
 }
-
 componentDidMount()
 {
     this.CallAPIGetlights();
@@ -191,25 +196,32 @@ componentDidMount()
 
 render ()
 {
+  let  buttontext = "Create Route" 
 
-  let buttontext = "Create Route" 
   if (this.state.route.RouteId != 0)
   {
     buttontext = 'Edit Route';
   }
+  let disabled  = false;
+  if (this.state.route.Lights[0] == undefined)
+  {
+    disabled = true;
+  }
+
   return(
   <div name ="root">
+    <div className="TopNav">
+    <Button size="lg" onClick={()=> this.setState({editRouteModalShow:true})} disabled={disabled} > {buttontext}</Button> {" "}
+    <Button size="lg" onClick={()=>this.mirrorRoute()}> Mirror Route</Button>
 
-    <Button size="lg" onClick={()=> this.setState({editRouteModalShow:true})}> {buttontext}</Button>
     <RouteEditorModal 
                     show= {this.state.editRouteModalShow}
                     onHide = {this.saveRoute.bind(this)}
                     route = {this.state.route} 
     />
-
-   <div className ="routes">
-   <RouteDropdown width="900" LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} selectedIndex={this.state.selectedIndex}  />
-   <div className="mirror" style={{ cursor: "pointer"}} onClick={() => this.mirrorRoute()} >MIRROR</div>
+      <div className ="routes">
+  <RouteDropdown  LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} selectedIndex={this.state.selectedIndex}  />
+  </div>
   </div>
     <div className ="holdlist">
     { this.state.Holds.map(({ light, degree,holdimg }) => (

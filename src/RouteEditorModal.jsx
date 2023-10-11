@@ -1,5 +1,5 @@
 import React, { Component,useEffect } from 'react';
-import {Modal,Button,Row,Col,Form, ModalFooter} from 'react-bootstrap'
+import {Modal,Button,Row,Col,Form, ModalFooter,FloatingLabel, FormGroup} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as _ from "lodash";
 
@@ -15,9 +15,6 @@ onSaveRoute() {
       this.props.onHide(this.state.route);
 
     //this.props.save(this.state.route)
-}
-onChangeRouteId() {
-    this.state.route.RouteId = event.target.value;
 }
 onChangeRouteName() {
     this.state.route.RouteName = event.target.value;
@@ -64,30 +61,36 @@ componentDidUpdate(){
         </Modal.Title>
       </Modal.Header> 
       <Modal.Body>
-      <Form>
-      <Form.Group as={Row} className="mb-3" controlId="formHorizontalRouteName">
-        <Form.Label column="lg"  lg={2}>
-          RouteName
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control  size="lg" onChange={this.onChangeRouteName.bind(this)} defaultValue={RouteName} />
-        </Col>
-      </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formHorizontalDifficulty">
-        <Form.Label column="lg"  lg={2}>
-          Difficulty
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control  size="lg" type="number" onChange={this.onChangeDifficulty.bind(this)} defaultValue={Difficulty}/>
-        </Col>
-      </Form.Group>
-
-      <Button   onClick={() => this.onSaveRoute()} variant="primary" type="button">
+      <Form.Floating className="mb-3">
+        <Form.Control
+          id="floatingInputCustom"
+          type="text"
+          placeholder="ThisRoute"
+          onChange={this.onChangeRouteName.bind(this)} 
+          defaultValue={RouteName}
+        />
+        <label htmlFor="floatingInputCustom">RouteName</label>
+      </Form.Floating>
+      <Form.Floating className="mb-3">
+        <Form.Control
+          id="floatingInputCustom"
+          type="number"
+          placeholder="1"
+          onChange={this.onChangeDifficulty.bind(this)} 
+          defaultValue={Difficulty}
+        />
+        <label htmlFor="floatingInputCustom">Diffciulty</label>
+      </Form.Floating>
+      </Modal.Body>
+      <ModalFooter>
+      <Button  onClick={() => this.onSaveRoute()} variant="primary" type="button">
         Save Route
       </Button>
-    </Form>
-      </Modal.Body>
+      
+      </ModalFooter>
+
+
     </Modal>
      )
 

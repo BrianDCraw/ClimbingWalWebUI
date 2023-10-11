@@ -30,7 +30,7 @@ render(){
     
     //set the rotation value used for the hold
      let degree =  this.props.degree;
-     let  rotation = 'rotate('+degree+'deg)translateX(-50%)';
+     let  rotation = 'rotate('+degree+'deg)';
 
      //set CSS class of the indicator light
      let cssclass;

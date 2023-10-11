@@ -13,7 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  
+
 }
 
 a {
@@ -26,20 +26,23 @@ a:hover {
 }
 
 body {
-  display: inline-block;
-  text-align: center;
+  display: flex;
   position:absolute;
   z-index:  -2;
   margin: 0;
 }
 .btn-group-lg>.btn, .btn-lg {
-  --bs-btn-font-size: 2.5rem;
+  width: 200px;
 }
 .holdlist {
-  width: 1100px;
-  height: 1800px;
+  width: 660px;
+  height: 1200px;
   background-image: url(https://c.pxhere.com/photos/b6/25/wood_background_funds_plate_ocre_aged_natural-989892.jpg!d);
   background-position-y: bottom;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
 }
 
 h1 {
@@ -47,87 +50,80 @@ h1 {
   line-height: 1.1;
 }
 .led-off{
-  transform: translate(200%,200%);
   width: 20%;
   height: 20%;
   background-color: rgb(197, 194, 194);
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
-  vertical-align: middle;
   z-index: 2;
+  position:relative;
 }
 .led-green {
-  transform: translate(200%,200%);
   width: 20%;
   height: 20%;
   background-color: #ABFF00;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
-  vertical-align: middle;
+  position:absolute;
 }
 .led-blue {
-  transform: translate(200%,200%);
   width: 20%;
   height: 20%;
   background-color: rgb(50, 64, 252);
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #011d47 0 -1px 9px, rgb(0, 38, 255) 0 2px 12px;
-  vertical-align: middle;
+  position:absolute;
 }
 .led-red{
-  transform: translate(200%,200%);
   width: 20%;
   height: 20%;
   background-color: red;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #470101 0 -1px 9px, red 0 2px 12px;
-  vertical-align: middle;
+  position:absolute;
 }
 
 .button {
   position: relative;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  float:left;
-  line-height: 10px;
-  vertical-align: middle;
+  width: 60px;
+  height: 60px;
   overflow:visible;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 
 }
 .circle-red{
-  border:7px solid red;    
-  height:90px;
+  border:4px solid red;    
+  height:90%;
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
-  width:90px;
+  width:90%;
   z-index: 2;
-  transform: translate(0%,-20%)
 }
 .circle-blue{
-  border:7px solid blue;    
-  height:90px;
+  border:4px solid blue;    
+  height:90%;
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
-  width:90px;
+  width:90%;
   z-index: 2;
-  transform: translate(0%,-20%)
 }
 .circle-green{
-  border:7px solid lime;    
-  height:90px;
+  border:4px solid lime;    
+  height:90%;
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
-  width:90px;
+  width:90%;
   z-index: 2;
-  transform: translate(0%,-20%)
 }
 
 .routes{
-  height: 100px; width: 1100;
+  height: 60px; width: 660px;
 }
 .mirror{
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
@@ -141,30 +137,32 @@ h1 {
   font-weight: bold;
 }
 .Dropdown-root{
-  width: 900px;
-  position:fixed;
+  position:relative;
+  width: 660px;
 z-index: 3;
 }
 .Dropdown-control{
-  height: 100px;
-  width: 900px;
-  line-height: 75px;
-  font-size: x-large;
+  height: 60px;
+  width: 660px;
+  line-height: 35px;
+  font-size: large;
   font-weight: bolder;
   text-align: center;
   background: #c5c5c5;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
 }
-
+.TopNav{
+  width:660px;
+}
 .Dropdown-menu{
   background: #dfdddd;
-  max-height: 800px;
+  max-height: 480px;
   font-size: large;
 }
 .Dropdown-option{
   background: #dfdddd;
-  line-height: 75px;
-  font-size: x-large;
+  line-height: 35px;
+  font-size: large;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
 }
@@ -172,8 +170,6 @@ z-index: 3;
 
 img {
   position:absolute;
-  transform-origin: 0px 50%;
-  transform: rotate(15deg)translateX(-50%);
   border-style: none;
   z-index: 0;
   width: 100%;
