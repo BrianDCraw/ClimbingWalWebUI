@@ -66,7 +66,7 @@
         "x": 10,
         "y": 18,
         "holdimg": "Hold123.png",
-        "degree": 0,
+        "degree": 90,
         "LightNum": 68
     },
     {
@@ -185,7 +185,7 @@
         "x": 5,
         "y": 16,
         "holdimg": "Hold35.png",
-        "degree": 15,
+        "degree": 105,
         "LightNum": 173
     },
     {
@@ -654,7 +654,7 @@
         "x": 6,
         "y": 10,
         "holdimg": "Hold34.png",
-        "degree": 0,
+        "degree": 90,
         "LightNum": 148
     },
     {
@@ -808,7 +808,7 @@
         "x": 6,
         "y": 8,
         "holdimg": "Hold10.png",
-        "degree": 0,
+        "degree": -90,
         "LightNum": 150
     },
     {
