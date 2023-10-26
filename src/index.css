@@ -24,6 +24,14 @@ a {
 a:hover {
   color: #535bf2;
 }
+.routeDropdown{
+  width: 210px;
+  display: inline-block;
+}
+.btn-toolbar{
+  justify-content: space-around;
+
+}
 
 body {
   display: flex;
@@ -32,11 +40,11 @@ body {
   margin: 0;
 }
 .btn-group-lg>.btn, .btn-lg {
-  width: 200px;
+  width: 210px;
 }
 .holdlist {
   width: 660px;
-  height: 1200px;
+  height: 1080px;
   background-image: url(https://c.pxhere.com/photos/b6/25/wood_background_funds_plate_ocre_aged_natural-989892.jpg!d);
   background-position-y: bottom;
   display: flex;
@@ -136,37 +144,13 @@ h1 {
   font-size:x-large;
   font-weight: bold;
 }
-.Dropdown-root{
-  position:relative;
-  width: 660px;
-z-index: 3;
-}
-.Dropdown-control{
-  height: 60px;
-  width: 660px;
-  line-height: 35px;
-  font-size: large;
-  font-weight: bolder;
-  text-align: center;
-  background: #c5c5c5;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
-}
-.TopNav{
-  width:660px;
-}
-.Dropdown-menu{
-  background: #dfdddd;
-  max-height: 480px;
-  font-size: large;
-}
-.Dropdown-option{
-  background: #dfdddd;
-  line-height: 35px;
-  font-size: large;
-  font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #3f3d3d 0 -1px 9px, rgba(139, 137, 137, 0.5) 0 2px 12px;
-}
 
+.topNav{
+  width:660px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 img {
   position:absolute;
@@ -174,8 +158,12 @@ img {
   z-index: 0;
   width: 100%;
   height: 100%;
+  
 }
-
+.dropdown-item {
+width: 210px;
+line-height: 2;
+font-size: 1.25rem;}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

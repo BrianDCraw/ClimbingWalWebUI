@@ -15,7 +15,7 @@ class App extends Component {
                     Holds:[],
                     RouteDropdownList:[],  
                     RouteList:{routes:[]}, 
-                    editRouteModalShow:false
+                    editRouteModalShow:false,
                   };
   }
 
@@ -132,8 +132,9 @@ LoadRouteList = () => {
 loadRoute = (Routename) =>
 {
   let newState = this.state 
-  let Route = newState.RouteList.routes.find( ({RouteId}) =>RouteId === Routename)
-  newState.selectedIndex = newState.RouteDropdownList.findIndex(el => el.value === Routename)
+  newState.selectedRoute =Routename;
+  let Route = newState.RouteList.routes.find( r => r.RouteId == Routename)
+  newState.selectedIndex = newState.RouteDropdownList.findIndex(el => el.value == Routename)
   newState.route.RouteId = Route.RouteId;
   newState.route.RouteName  = Route.RouteName;
   newState.route.Lights = _.cloneDeep(Route.Lights);
@@ -167,11 +168,10 @@ mirrorRoute = ()  =>  {
 setupGrid = ()  => {
   let newState = this.state;
   newState.Holds= []
-    
   holdlist.forEach( hold => {
     let color =[0,0,0];
     let lightdata = this.state.route.Lights.find(light => light.LightNum == hold.LightNum)
-    if (lightdata != undefined)
+    if (lightdata != undefined && lightdata.color != undefined)
     {
       color = lightdata.color;
     }
@@ -183,7 +183,6 @@ setupGrid = ()  => {
     }
     newState.Holds.push(newHold)
   });
-  
   //order lights by coordinates to set the order the UI willend up using
    newState.Holds = _.orderBy(newState.Holds, ['y','x'],['desc','asc']);
   this.setState(newState)
@@ -210,19 +209,16 @@ render ()
 
   return(
   <div name ="root">
-    <div className="TopNav">
-    <Button size="lg" onClick={()=> this.setState({editRouteModalShow:true})} disabled={disabled} > {buttontext}</Button> {" "}
-    <Button size="lg" onClick={()=>this.mirrorRoute()}> Mirror Route</Button>
-
+    <div className="topNav">
+    <RouteDropdown   size="lg" LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} selectedIndex={this.state.selectedIndex}  />  {""}
+    <Button size="lg" onClick={()=> this.setState({editRouteModalShow:true})} disabled={disabled} > {buttontext}</Button> {""}
+    <Button size="lg" onClick={()=>this.mirrorRoute()} disabled={disabled}> Mirror Route</Button> 
+    </div>
     <RouteEditorModal 
                     show= {this.state.editRouteModalShow}
                     onHide = {this.saveRoute.bind(this)}
                     route = {this.state.route} 
     />
-      <div className ="routes">
-  <RouteDropdown  LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} selectedIndex={this.state.selectedIndex}  />
-  </div>
-  </div>
     <div className ="holdlist">
     { this.state.Holds.map(({ light, degree,holdimg }) => (
  <GridButton key = {light.LightNum}

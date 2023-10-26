@@ -9,15 +9,15 @@
     {
         "x": 2,
         "y": 18,
-        "holdimg": "Hold80.png",
-        "degree": -5,
+        "holdimg": "Hold122.png",
+        "degree": 0,
         "LightNum": 212
     },
     {
         "x": 3,
         "y": 18,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold38.png",
+        "degree": 90,
         "LightNum": 211
     },
     {
@@ -30,8 +30,8 @@
     {
         "x": 5,
         "y": 18,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold80.png",
+        "degree": 5,
         "LightNum": 175
     },
     {
@@ -44,28 +44,28 @@
     {
         "x": 7,
         "y": 18,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold21.png",
+        "degree": 5,
         "LightNum": 139
     },
     {
         "x": 8,
         "y": 18,
-        "holdimg": "Hold53.png",
-        "degree": 5,
+        "holdimg": "Hold130.png",
+        "degree": 0,
         "LightNum": 104
     },
     {
         "x": 9,
         "y": 18,
-        "holdimg": "",
+        "holdimg": "Hold56.png",
         "degree": 0,
         "LightNum": 103
     },
     {
         "x": 10,
         "y": 18,
-        "holdimg": "Hold64.png",
+        "holdimg": "Hold123.png",
         "degree": 0,
         "LightNum": 68
     },
@@ -79,7 +79,7 @@
     {
         "x": 1,
         "y": 17,
-        "holdimg": "Hold1.png",
+        "holdimg": "Hold125.png",
         "degree": 0,
         "LightNum": 246
     },
@@ -100,7 +100,7 @@
     {
         "x": 4,
         "y": 17,
-        "holdimg": "",
+        "holdimg": "Hold51.png",
         "degree": 0,
         "LightNum": 177
     },
@@ -114,8 +114,8 @@
     {
         "x": 6,
         "y": 17,
-        "holdimg": "Hold78.png",
-        "degree": -5,
+        "holdimg": "",
+        "degree": 0,
         "LightNum": 141
     },
     {
@@ -128,8 +128,8 @@
     {
         "x": 8,
         "y": 17,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold60.png",
+        "degree": 115,
         "LightNum": 105
     },
     {
@@ -149,7 +149,7 @@
     {
         "x": 11,
         "y": 17,
-        "holdimg": "Hold23.png",
+        "holdimg": "Hold126.png",
         "degree": 0,
         "LightNum": 66
     },
@@ -170,28 +170,28 @@
     {
         "x": 3,
         "y": 16,
-        "holdimg": "",
+        "holdimg": "Hold71.png",
         "degree": 0,
         "LightNum": 209
     },
     {
         "x": 4,
         "y": 16,
-        "holdimg": "Hold63.png",
-        "degree": 135,
+        "holdimg": "",
+        "degree": 0,
         "LightNum": 178
     },
     {
         "x": 5,
         "y": 16,
-        "holdimg": "Hold70.png",
-        "degree": -10,
+        "holdimg": "Hold35.png",
+        "degree": 15,
         "LightNum": 173
     },
     {
         "x": 6,
         "y": 16,
-        "holdimg": "",
+        "holdimg": "Hold127.png",
         "degree": 0,
         "LightNum": 142
     },
@@ -205,14 +205,14 @@
     {
         "x": 8,
         "y": 16,
-        "holdimg": "Hold79.png",
-        "degree": 10,
+        "holdimg": "",
+        "degree": 0,
         "LightNum": 106
     },
     {
         "x": 9,
         "y": 16,
-        "holdimg": "",
+        "holdimg": "Hold59.png",
         "degree": 0,
         "LightNum": 101
     },
@@ -240,22 +240,22 @@
     {
         "x": 2,
         "y": 15,
-        "holdimg": "",
+        "holdimg": "Hold116.png",
         "degree": 0,
         "LightNum": 215
     },
     {
         "x": 3,
         "y": 15,
-        "holdimg": "Hold84.png",
-        "degree": -90,
+        "holdimg": "",
+        "degree": 0,
         "LightNum": 208
     },
     {
         "x": 4,
         "y": 15,
-        "holdimg": "Hold71.png",
-        "degree": -2,
+        "holdimg": "Hold132.png",
+        "degree": 0,
         "LightNum": 179
     },
     {
@@ -268,8 +268,8 @@
     {
         "x": 6,
         "y": 15,
-        "holdimg": "Hold60.png",
-        "degree": -40,
+        "holdimg": "Hold29.png",
+        "degree": 0,
         "LightNum": 143
     },
     {
@@ -282,21 +282,21 @@
     {
         "x": 8,
         "y": 15,
-        "holdimg": "Hold59.png",
+        "holdimg": "Hold135.png",
         "degree": 0,
         "LightNum": 107
     },
     {
         "x": 9,
         "y": 15,
-        "holdimg": "Hold22.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 100
     },
     {
         "x": 10,
         "y": 15,
-        "holdimg": "",
+        "holdimg": "Hold118.png",
         "degree": 0,
         "LightNum": 71
     },
@@ -310,14 +310,14 @@
     {
         "x": 1,
         "y": 14,
-        "holdimg": "",
+        "holdimg": "Hold124.png",
         "degree": 0,
         "LightNum": 243
     },
     {
         "x": 2,
         "y": 14,
-        "holdimg": "Hold13.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 216
     },
@@ -331,8 +331,8 @@
     {
         "x": 4,
         "y": 14,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold79.png",
+        "degree": -50,
         "LightNum": 180
     },
     {
@@ -359,8 +359,8 @@
     {
         "x": 8,
         "y": 14,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold63.png",
+        "degree": 200,
         "LightNum": 108
     },
     {
@@ -373,22 +373,22 @@
     {
         "x": 10,
         "y": 14,
-        "holdimg": "Hold21.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 72
     },
     {
         "x": 11,
         "y": 14,
-        "holdimg": "",
+        "holdimg": "Hold121.png",
         "degree": 0,
         "LightNum": 63
     },
     {
         "x": 1,
         "y": 13,
-        "holdimg": "Hold38.png",
-        "degree": 90,
+        "holdimg": "",
+        "degree": 0,
         "LightNum": 242
     },
     {
@@ -401,22 +401,22 @@
     {
         "x": 3,
         "y": 13,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold1.png",
+        "degree": 10,
         "LightNum": 206
     },
     {
         "x": 4,
         "y": 13,
-        "holdimg": "Hold82.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 181
     },
     {
         "x": 5,
         "y": 13,
-        "holdimg": "Hold67.png",
-        "degree": 45,
+        "holdimg": "Hold117.png",
+        "degree": -60,
         "LightNum": 170
     },
     {
@@ -429,22 +429,22 @@
     {
         "x": 7,
         "y": 13,
-        "holdimg": "Hold39.png",
-        "degree": 135,
+        "holdimg": "Hold133.png",
+        "degree": 45,
         "LightNum": 134
     },
     {
         "x": 8,
         "y": 13,
-        "holdimg": "Hold44.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 109
     },
     {
         "x": 9,
         "y": 13,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold23.png",
+        "degree": 10,
         "LightNum": 98
     },
     {
@@ -457,7 +457,7 @@
     {
         "x": 11,
         "y": 13,
-        "holdimg": "Hold56.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 62
     },
@@ -471,14 +471,14 @@
     {
         "x": 2,
         "y": 12,
-        "holdimg": "",
+        "holdimg": "Hold134.png",
         "degree": 0,
         "LightNum": 218
     },
     {
         "x": 3,
         "y": 12,
-        "holdimg": "Hold29.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 205
     },
@@ -492,7 +492,7 @@
     {
         "x": 5,
         "y": 12,
-        "holdimg": "",
+        "holdimg": "Hold31.png",
         "degree": 0,
         "LightNum": 169
     },
@@ -506,7 +506,7 @@
     {
         "x": 7,
         "y": 12,
-        "holdimg": "",
+        "holdimg": "Hold32.png",
         "degree": 0,
         "LightNum": 133
     },
@@ -520,14 +520,14 @@
     {
         "x": 9,
         "y": 12,
-        "holdimg": "Hold51.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 97
     },
     {
         "x": 10,
         "y": 12,
-        "holdimg": "",
+        "holdimg": "Hold53.png",
         "degree": 0,
         "LightNum": 74
     },
@@ -541,84 +541,84 @@
     {
         "x": 1,
         "y": 11,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold138.png",
+        "degree": 45,
         "LightNum": 240
     },
     {
         "x": 2,
         "y": 11,
-        "holdimg": "Hold6.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 219
     },
     {
         "x": 3,
         "y": 11,
-        "holdimg": "Hold34.png",
-        "degree": -45,
+        "holdimg": "Hold115.png",
+        "degree": 0,
         "LightNum": 204
     },
     {
         "x": 4,
         "y": 11,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold67.png",
+        "degree": 30,
         "LightNum": 183
     },
     {
         "x": 5,
         "y": 11,
-        "holdimg": "Hold40.png",
-        "degree": 45,
+        "holdimg": "",
+        "degree": 0,
         "LightNum": 168
     },
     {
         "x": 6,
         "y": 11,
-        "holdimg": "Hold24.png",
-        "degree": -90,
+        "holdimg": "Hold131.png",
+        "degree": 0,
         "LightNum": 147
     },
     {
         "x": 7,
         "y": 11,
-        "holdimg": "Hold41.png",
-        "degree": 45,
+        "holdimg": "",
+        "degree": 0,
         "LightNum": 132
     },
     {
         "x": 8,
         "y": 11,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold39.png",
+        "degree": -210,
         "LightNum": 111
     },
     {
         "x": 9,
         "y": 11,
-        "holdimg": "Hold35.png",
-        "degree": -45,
+        "holdimg": "Hold119.png",
+        "degree": 0,
         "LightNum": 96
     },
     {
         "x": 10,
         "y": 11,
-        "holdimg": "Hold69.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 75
     },
     {
         "x": 11,
         "y": 11,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold137.png",
+        "degree": -45,
         "LightNum": 60
     },
     {
         "x": 1,
         "y": 10,
-        "holdimg": "Hold31.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 239
     },
@@ -639,8 +639,8 @@
     {
         "x": 4,
         "y": 10,
-        "holdimg": "Hold100.png",
-        "degree": -100,
+        "holdimg": "Hold82.png",
+        "degree": -5,
         "LightNum": 184
     },
     {
@@ -653,7 +653,7 @@
     {
         "x": 6,
         "y": 10,
-        "holdimg": "",
+        "holdimg": "Hold34.png",
         "degree": 0,
         "LightNum": 148
     },
@@ -667,8 +667,8 @@
     {
         "x": 8,
         "y": 10,
-        "holdimg": "Hold68.png",
-        "degree": 0,
+        "holdimg": "Hold44.png",
+        "degree": 10,
         "LightNum": 112
     },
     {
@@ -688,7 +688,7 @@
     {
         "x": 11,
         "y": 10,
-        "holdimg": "Hold32.png",
+        "holdimg": "",
         "degree": 0,
         "LightNum": 59
     },
@@ -723,7 +723,7 @@
     {
         "x": 5,
         "y": 9,
-        "holdimg": "",
+        "holdimg": "Hold64.png",
         "degree": 0,
         "LightNum": 166
     },
@@ -737,7 +737,7 @@
     {
         "x": 7,
         "y": 9,
-        "holdimg": "",
+        "holdimg": "Hold13.png",
         "degree": 0,
         "LightNum": 130
     },
@@ -786,14 +786,14 @@
     {
         "x": 3,
         "y": 8,
-        "holdimg": "",
+        "holdimg": "Hold129.png",
         "degree": 0,
         "LightNum": 201
     },
     {
         "x": 4,
         "y": 8,
-        "holdimg": "",
+        "holdimg": "Hold84.png",
         "degree": 0,
         "LightNum": 186
     },
@@ -821,14 +821,14 @@
     {
         "x": 8,
         "y": 8,
-        "holdimg": "",
+        "holdimg": "Hold22.png",
         "degree": 0,
         "LightNum": 114
     },
     {
         "x": 9,
         "y": 8,
-        "holdimg": "",
+        "holdimg": "Hold120.png",
         "degree": 0,
         "LightNum": 93
     },
@@ -849,7 +849,7 @@
     {
         "x": 1,
         "y": 7,
-        "holdimg": "",
+        "holdimg": "Hold136.png",
         "degree": 0,
         "LightNum": 236
     },
@@ -919,7 +919,7 @@
     {
         "x": 11,
         "y": 7,
-        "holdimg": "",
+        "holdimg": "Hold128.png",
         "degree": 0,
         "LightNum": 56
     },
@@ -933,8 +933,8 @@
     {
         "x": 2,
         "y": 6,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold68.png",
+        "degree": -90,
         "LightNum": 224
     },
     {
@@ -989,7 +989,7 @@
     {
         "x": 10,
         "y": 6,
-        "holdimg": "",
+        "holdimg": "Hold40.png",
         "degree": 0,
         "LightNum": 80
     },
@@ -1115,7 +1115,7 @@
     {
         "x": 6,
         "y": 4,
-        "holdimg": "",
+        "holdimg": "Hold6.png",
         "degree": 0,
         "LightNum": 154
     },
@@ -1157,7 +1157,7 @@
     {
         "x": 1,
         "y": 3,
-        "holdimg": "Hold99.png",
+        "holdimg": "Hold104.png",
         "degree": 0,
         "LightNum": 232
     },
@@ -1227,8 +1227,8 @@
     {
         "x": 11,
         "y": 3,
-        "holdimg": "Hold110.png",
-        "degree": 0,
+        "holdimg": "Hold92.png",
+        "degree": 180,
         "LightNum": 52
     },
     {
@@ -1311,7 +1311,7 @@
     {
         "x": 1,
         "y": 1,
-        "holdimg": "",
+        "holdimg": "Hold41.png",
         "degree": 0,
         "LightNum": 230
     },
@@ -1332,7 +1332,7 @@
     {
         "x": 4,
         "y": 1,
-        "holdimg": "Hold92.png",
+        "holdimg": "Hold110.png",
         "degree": 180,
         "LightNum": 193
     },
@@ -1360,7 +1360,7 @@
     {
         "x": 8,
         "y": 1,
-        "holdimg": "Hold104.png",
+        "holdimg": "Hold99.png",
         "degree": 0,
         "LightNum": 121
     },
@@ -1381,8 +1381,8 @@
     {
         "x": 11,
         "y": 1,
-        "holdimg": "",
-        "degree": 0,
+        "holdimg": "Hold100.png",
+        "degree": -220,
         "LightNum": 50
     }
 ]
