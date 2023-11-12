@@ -53,6 +53,15 @@ CallAPISetLight = (light) => {
    });
 
 }
+CallAPISaveAllRoutes = (RouteList) => {
+  //Call API to set the specific light
+  axios.post('http://192.168.1.245/updateRoutes', RouteList.routes)
+  .catch(error => {
+        console.error('There was an error!', error);
+  });
+
+}
+
 
 updateLight = (light ) => {
   let newState = this.state; //Grab state which is where the JSON is saved
@@ -111,6 +120,7 @@ saveRoute =(route) => {
     }
   }
  this.setState(newState);
+ this.CallAPISaveAllRoutes(newState.RouteList);
 
 }
 
