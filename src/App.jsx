@@ -6,6 +6,7 @@ import axios from "axios";
 import * as _ from "lodash";
 import holdlist from './data/holds.json';
 import { Button, ButtonToolbar } from "react-bootstrap";
+import { isUndefined } from "lodash";
 
 class App extends Component { 
   constructor(props) {
@@ -123,6 +124,19 @@ saveRoute =(route) => {
  this.CallAPISaveAllRoutes(newState.RouteList);
 
 }
+DeleteRoute = () => {
+  let newState = this.state;
+  if (this.state.selectedIndex !== undefined)
+  {
+    let index = newState.RouteList.routes.findIndex(el => el.RouteId == newState.RouteDropdownList[newState.selectedIndex].value)
+    newState.RouteList.routes.splice(index, 1)
+    newState.RouteDropdownList.splice(newState.selectedIndex,1)
+    newState.selectedIndex = undefined;
+    this.setState(newState);
+    this.CallAPISaveAllRoutes(newState.RouteList);
+  }
+
+}
 
 LoadRouteList = () => {
   let newState = this.state; //Grab state which is where the JSON is saved
@@ -216,12 +230,19 @@ render ()
   {
     disabled = true;
   }
+  let disable_delete = false;
+  if (this.state.selectedIndex == undefined || this.state.selectedIndex == 0)
+  {
+    disable_delete = true;
+  }
+
 
   return(
   <div name ="root">
     <div className="topNav">
     <RouteDropdown   size="lg" LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} selectedIndex={this.state.selectedIndex}  />  {""}
     <Button size="lg" onClick={()=> this.setState({editRouteModalShow:true})} disabled={disabled} > {buttontext}</Button> {""}
+    <Button size="lg" onClick={()=>this.DeleteRoute()} disabled={disable_delete}> Delete Route</Button> 
     <Button size="lg" onClick={()=>this.mirrorRoute()} disabled={disabled}> Mirror Route</Button> 
     </div>
     <RouteEditorModal 
