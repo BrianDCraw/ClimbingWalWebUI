@@ -131,7 +131,7 @@ DeleteRoute = () => {
     let index = newState.RouteList.routes.findIndex(el => el.RouteId == newState.RouteDropdownList[newState.selectedIndex].value)
     newState.RouteList.routes.splice(index, 1)
     newState.RouteDropdownList.splice(newState.selectedIndex,1)
-    newState.selectedIndex = undefined;
+    this.loadRoute(0); //clear the route / lights on delete
     this.setState(newState);
     this.CallAPISaveAllRoutes(newState.RouteList);
   }
@@ -181,11 +181,6 @@ mirrorRoute = ()  =>  {
    });
    this.setupGrid();
    let newState = this.state
-   newState.route.RouteName =""
-   newState.route.RouteId = 0
-   newState.route.Difficulty = ""
-   newState.selectedIndex = -1
-   this.setState(newState)
    this.CallAPILoadRoute(this.state.route.Lights)
 }
 
