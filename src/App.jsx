@@ -235,9 +235,9 @@ render ()
   return(
   <div name ="root">
     <div className="topNav">
-    <RouteDropdown   size="lg" LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} selectedIndex={this.state.selectedIndex}  />  {""}
-    <Button size="lg" onClick={()=> this.setState({editRouteModalShow:true})} disabled={disabled} > {buttontext}</Button> {""}
-    <Button size="lg" onClick={()=>this.DeleteRoute()} disabled={disable_delete}> Delete Route</Button> 
+    <RouteDropdown   size="lg" LoadRoute={this.loadRoute.bind(this)} DropDownList={this.state.RouteDropdownList} selectedIndex={this.state.selectedIndex}  />  {" "}
+    <Button size="lg" onClick={()=> this.setState({editRouteModalShow:true})} disabled={disabled} > {buttontext}</Button> {" "}
+    <Button size="lg" onClick={()=>this.DeleteRoute()} disabled={disable_delete}> Delete Route</Button> {" "}
     <Button size="lg" onClick={()=>this.mirrorRoute()} disabled={disabled}> Mirror Route</Button> 
     </div>
     <RouteEditorModal 

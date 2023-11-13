@@ -13,7 +13,6 @@ class RouteEditorModal extends Component {
 onSaveRoute() {
      console.log(this.state.route);
       this.props.onHide(this.state.route);
-
     //this.props.save(this.state.route)
 }
 onChangeRouteName() {
@@ -51,9 +50,7 @@ componentDidUpdate(){
         
         <Modal
           {...this.props}
-        size="lg"
-        fullscreen="true"
-        aria-labelledby="contained-modal-title-vcenter"
+        size="sm"
          >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
