@@ -21,12 +21,19 @@ class App extends Component {
   }
 
 
-CallAPILoadRoute = (Lights) =>{
+CallAPIMirrorRoute = (Lights) =>{
     let lightlist =  {"lights":Lights};
-    axios.post('http://192.168.1.245/setLEDs',lightlist)
+    axios.post('http://192.168.1.245/mirrorRoute',lightlist)
     .catch(error => {
       console.error('There was an error!', error);
     });
+}
+CallAPILoadRoute = (RouteId) =>{
+  let routeId =  {"RouteId":RouteId};
+  axios.post('http://192.168.1.245/loadRoute',routeId)
+  .catch(error => {
+    console.error('There was an error!', error);
+  });
 }
 CallAPIGetlights = ()  =>  {
   let newState = this.state;
@@ -43,6 +50,24 @@ CallAPIGetRoutes = ()  =>  {
       newState.RouteList.routes =  response.data;
       this.setState(newState);
       this.LoadRouteList()
+  })
+}
+
+CallAPIGetCurrentRoute = ()  =>  {
+  let newState = this.state;
+  axios.get('http://192.168.1.245/getCurrentRoute').then ((response) => {  
+    if (response.data.RouteId > 0 )
+    {
+      newState.selectedRoute =  response.data.RouteId;
+      newState.selectedIndex = newState.RouteDropdownList.findIndex(el => el.value ==  response.data.RouteId);
+      let Route = newState.RouteList.routes.find( r => r.RouteId == response.data.RouteId)
+      newState.route.RouteId = Route.RouteId;
+      newState.route.RouteName  = Route.RouteName;
+      newState.route.Difficulty = Route.Difficulty;
+
+     // console.log(newState);
+      this.setState(newState);
+    }
   })
 }
 
@@ -163,7 +188,7 @@ loadRoute = (Routename) =>
   newState.route.RouteName  = Route.RouteName;
   newState.route.Lights = _.cloneDeep(Route.Lights);
   newState.route.Difficulty = Route.Difficulty;
-  this.CallAPILoadRoute(Route.Lights)
+  this.CallAPILoadRoute(Route.RouteId)
   this.setupGrid();
   this.setState(newState);
 }
@@ -181,7 +206,7 @@ mirrorRoute = ()  =>  {
    });
    this.setupGrid();
    let newState = this.state
-   this.CallAPILoadRoute(this.state.route.Lights)
+   this.CallAPIMirrorRoute(this.state.route.Lights)
 }
 
 setupGrid = ()  => {
@@ -210,6 +235,7 @@ componentDidMount()
 {
     this.CallAPIGetlights();
     this.CallAPIGetRoutes();
+    this.CallAPIGetCurrentRoute();
 }
 
 render ()

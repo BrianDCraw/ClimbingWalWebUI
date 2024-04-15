@@ -30,10 +30,9 @@ a:hover {
 }
 .btn-toolbar{
   justify-content: space-around;
-
 }
 .modal.show .modal-dialog{
-  width: 85%;
+  width: 95%;
 }
 .modal-backdrop.show {
   width: 100%;
